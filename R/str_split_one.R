@@ -1,14 +1,18 @@
 #' Splits a string into a vector containing each element individually
 #'
 #' @param string A character vector with one element
-#' @param split What to split on.
+#' @inheritParams stringr::str_split
 #'
 #' @returns A character vector containing the elements of the original string
 #'
 #' @export
 #' @examples
-#' string <- "alpha,bravo,charlie,delta"
-#' strsplit1(string, split = ",")
+#' x <- "alpha,bravo,charlie,delta"
+#' str_split_one(x, pattern = ",")
+#' str_split_one(x, pattern = ",", n = 2)
+#' 
+#' y <- "192.168.0.1"
+#' str_split_one(x, pattern = stringr::fixed("."))
 #' 
 str_split_one <- function(string, pattern, n = Inf){
   stopifnot(is.character(string), length(string) <= 1)
